@@ -9,6 +9,8 @@ import {
   Tooltip,
   Filler,
   Legend,
+  ChartData,
+  ChartOptions,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
@@ -23,7 +25,7 @@ ChartJS.register(
 );
 
 export default function PulseChart() {
-  const data = {
+  const data: ChartData<"line"> = {
     labels: ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"],
     datasets: [
       {
@@ -53,7 +55,7 @@ export default function PulseChart() {
     ],
   };
 
-  const options = {
+  const options: ChartOptions<"line"> = {
     responsive: true,
     plugins: {
       legend: {
@@ -62,10 +64,11 @@ export default function PulseChart() {
     },
     scales: {
       y: {
+        type: "linear",
         beginAtZero: true,
         max: 100,
         ticks: {
-          callback: (val: number) => `${val}%`,
+          callback: (val: number | string) => `${val}%`,
         },
       },
     },
