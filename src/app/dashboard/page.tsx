@@ -75,7 +75,6 @@ export default function DashboardPage() {
             {alertas.map((alerta, index) => (
               <AlertCard
                 key={index}
-                icon={alerta.icon}
                 title={alerta.title}
                 description={alerta.description}
                 level={alerta.level as "alto" | "medio" | "bajo"}
